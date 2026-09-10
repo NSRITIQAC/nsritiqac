@@ -1,23 +1,294 @@
-*{box-sizing:border-box}body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:#f5f7fa;color:#172033;line-height:1.5}a{color:inherit}.wrap{width:min(1080px,92%);margin:auto}header{background:linear-gradient(135deg,#0b2545,#164e78);color:white;padding:70px 0;border-bottom:4px solid #d5a21b}header small{font-weight:800;letter-spacing:4px}header p{font-size:12px;letter-spacing:2px;opacity:.8;font-weight:700;margin-top:28px}header h1{font-size:clamp(42px,7vw,70px);margin:8px 0 14px;line-height:1}header span{font-size:17px;opacity:.9}main{padding:55px 0 80px}section b{font-size:11px;letter-spacing:1.5px;color:#0b5480;background:#e5f0f7;padding:7px 11px;border-radius:20px}section h2{font-size:34px;margin:16px 0 5px}section p,.page>p{color:#667085}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}.grid a,.links a{background:white;border:1px solid #e3e8ef;border-radius:16px;padding:30px;text-decoration:none;box-shadow:0 8px 25px #1423370d;transition:.2s}.grid a:hover,.links a:hover{transform:translateY(-3px);box-shadow:0 14px 30px #14233718}.grid strong{font-size:40px;color:#0b2545}.grid h3{font-size:21px;margin:8px 0}.grid p{color:#667085}.grid em{font-style:normal;color:#0b5480;font-weight:700}nav{background:#0b2545;color:white;padding:20px 0}nav .wrap{display:flex;justify-content:space-between}nav a{text-decoration:none;font-weight:800}.page>a{color:#0b5480;text-decoration:none;font-weight:700}.page h1{font-size:42px;margin:35px 0 8px}.links{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:30px}.links a{display:flex;gap:17px;padding:20px}.links b{background:#edf5fa;color:#0b5480;padding:8px 10px;border-radius:8px;height:max-content}.links h3{margin:2px 0 5px}.links small{color:#7a8494}footer{background:#0b2545;color:#dce6ef;padding:22px;text-align:center;font-size:13px}@media(max-width:700px){.grid,.links{grid-template-columns:1fr}header{padding:52px 0}.page h1{font-size:34px}}
+/* =========================================================
+   GLOBAL STYLES
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fa;
+    color: #172033;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================================
+   COMMON WRAPPER
+   ========================================================= */
+
+.wrap {
+    width: min(1080px, 92%);
+    margin: auto;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    background: linear-gradient(135deg, #0b2545, #164e78);
+    color: white;
+    padding: 70px 0;
+    border-bottom: 4px solid #d5a21b;
+}
+
+header small {
+    font-weight: 800;
+    letter-spacing: 4px;
+}
+
+header p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    font-weight: 700;
+    margin-top: 28px;
+}
+
+header h1 {
+    font-size: clamp(42px, 7vw, 70px);
+    margin: 8px 0 14px;
+    line-height: 1;
+}
+
+header span {
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+
+main {
+    padding: 55px 0 80px;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+section b {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #0b5480;
+    background: #e5f0f7;
+    padding: 7px 11px;
+    border-radius: 20px;
+}
+
+section h2 {
+    font-size: 34px;
+    margin: 16px 0 5px;
+}
+
+section p,
+.page > p {
+    color: #667085;
+}
+
+
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.grid a,
+.links a {
+    background: white;
+    border: 1px solid #e3e8ef;
+    border-radius: 16px;
+    padding: 30px;
+    text-decoration: none;
+    box-shadow: 0 8px 25px #1423370d;
+    transition: 0.2s;
+}
+
+.grid a:hover,
+.links a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px #14233718;
+}
+
+.grid strong {
+    font-size: 40px;
+    color: #0b2545;
+}
+
+.grid h3 {
+    font-size: 21px;
+    margin: 8px 0;
+}
+
+.grid p {
+    color: #667085;
+}
+
+.grid em {
+    font-style: normal;
+    color: #0b5480;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+nav {
+    background: #0b2545;
+    color: white;
+    padding: 20px 0;
+}
+
+nav .wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.page > a {
+    color: #0b5480;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.page h1 {
+    font-size: 42px;
+    margin: 35px 0 8px;
+}
+
+
+/* =========================================================
+   LINKS GRID
+   ========================================================= */
+
+.links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.links a {
+    display: flex;
+    gap: 17px;
+    padding: 20px;
+}
+
+.links b {
+    background: #edf5fa;
+    color: #0b5480;
+    padding: 8px 10px;
+    border-radius: 8px;
+    height: max-content;
+}
+
+.links h3 {
+    margin: 2px 0 5px;
+}
+
+.links small {
+    color: #7a8494;
+}
+
+
+/* =========================================================
+   NEW BADGE
+   ========================================================= */
+
 .new-badge {
     position: absolute;
     top: 8px;
     right: 10px;
+
     background: #e53935;
     color: white;
+
     font-size: 11px;
     font-weight: bold;
+
     padding: 4px 8px;
     border-radius: 12px;
+
     letter-spacing: 0.5px;
+
     animation: blinkNew 1s infinite;
 }
 
+
+/* =========================================================
+   NEW BADGE BLINK ANIMATION
+   ========================================================= */
+
 @keyframes blinkNew {
-    0%, 50% {
+
+    0%,
+    50% {
         opacity: 1;
     }
-    51%, 100% {
+
+    51%,
+    100% {
         opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #0b2545;
+    color: #dce6ef;
+    padding: 22px;
+    text-align: center;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .grid,
+    .links {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        padding: 52px 0;
+    }
+
+    .page h1 {
+        font-size: 34px;
     }
 }
