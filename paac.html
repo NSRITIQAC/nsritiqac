@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="NSRIT Office of the IQAC - Dean PAAC dashboard for approvals, rankings, certifications and institutional credentials." name="description"/>
+  <title>
+   Dean (PAAC) | Office of the IQAC | NSRIT
+  </title>
+  <style>
+   :root {
+    --navy:#102b4e;
+    --blue:#1b527d;
+    --gold:#c6a45b;
+    --ink:#1d2d40;
+    --muted:#65758a;
+    --line:#dfe7ef;
+    --bg:#f4f7fb;
+    --white:#fff;
+    --green:#267451;
+    --amber:#95691b;
+    --red:#a53c3c
+}
+* {
+    box-sizing:border-box
+}
+body {
+    margin:0;
+    background:var(--bg);
+    font-family:Arial,Helvetica,sans-serif;
+    color:var(--ink);
+    line-height:1.5
+}
+a {
+    color:inherit;
+    text-decoration:none
+}
+button,input,select {
+    font:inherit
+}
+.wrap {
+    width:min(1240px,94%);
+    margin:auto
+}
+.top {
+    background:var(--navy);
+    color:white;
+    border-bottom:4px solid var(--gold)
+}
+.topinner {
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:15px 0
+}
+.monogram {
+    height:48px;
+    width:48px;
+    border:1px solid #ffffff66;
+    border-radius:11px;
+    display:grid;
+    place-items:center;
+    color:var(--gold);
+    font-size:22px;
+    font-weight:800;
+    flex:none
+}
+.brand h1 {
+    font-size:16px;
+    line-height:1.3;
+    margin:0;
+    letter-spacing:.35px
+}
+.brand p {
+    font-size:12px;
+    color:#d5e0eb;
+    margin:4px 0 0
+}
+.office {
+    margin-left:auto;
+    text-align:right;
+    font-size:12px;
+    color:#d5e0eb
+}
+.office strong {
+    display:block;
+    color:white;
+    font-size:13px
+}
+.hero {
+    background:linear-gradient(120deg,#e9f0f7,#fbfcfe 68%,#f3ecd9);
+    padding:32px 0 26px
+}
+.eyebrow {
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.8px;
+    color:var(--blue)
+}
+.hero h2 {
+    margin:8px 0 8px;
+    font-size:clamp(27px,3.5vw,39px);
+    line-height:1.15;
+    color:var(--navy)
+}
+.hero p {
+    max-width:820px;
+    margin:0;
+    color:#56667a;
+    font-size:14px
+}
+.goldline {
+    height:3px;
+    width:64px;
+    background:var(--gold);
+    margin-top:18px;
+    border-radius:3px
+}
+main {
+    padding:25px 0 52px
+}
+.section-title {
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:16px;
+    margin-bottom:15px
+}
+.section-title h3 {
+    font-size:20px;
+    color:var(--navy);
+    margin:0
+}
+.section-title p {
+    margin:3px 0 0;
+    color:var(--muted);
+    font-size:12px
+}
+.tag {
+    border:1px solid #d6c28d;
+    background:#fffaf0;
+    color:#775c1e;
+    border-radius:100px;
+    padding:6px 10px;
+    font-size:11px;
+    font-weight:700;
+    white-space:nowrap
+}
+.metrics {
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:13px;
+    margin-bottom:26px
+}
+.metric {
+    background:white;
+    border:1px solid var(--line);
+    border-radius:13px;
+    padding:16px;
+    box-shadow:0 4px 14px #102b4e08
+}
+.metrichead {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:var(--muted);
+    font-size:12px
+}
+.metricicon {
+    height:31px;
+    width:31px;
+    border-radius:9px;
+    background:#edf3f8;
+    color:var(--blue);
+    display:grid;
+    place-items:center;
+    font-size:16px
+}
+.metric strong {
+    display:block;
+    color:var(--navy);
+    font-size:25px;
+    margin-top:10px
+}
+.metric small {
+    color:var(--muted);
+    font-size:11px
+}
+.controls {
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:16px
+}
+.search {
+    flex:1;
+    min-width:210px;
+    border:1px solid var(--line);
+    border-radius:9px;
+    padding:11px 13px;
+    background:white;
+    color:var(--ink)
+}
+.select {
+    border:1px solid var(--line);
+    border-radius:9px;
+    padding:10px 12px;
+    background:white;
+    color:var(--ink)
+}
+.layout {
+    display:grid;
+    grid-template-columns:280px minmax(0,1fr);
+    gap:18px;
+    align-items:start
+}
+.sidebar,.contentpanel {
+    background:white;
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden
+}
+.sidehead {
+    padding:17px 18px;
+    background:#f9fbfd;
+    border-bottom:1px solid var(--line)
+}
+.sidehead strong {
+    color:var(--navy);
+    font-size:13px
+}
+.sidehead p {
+    margin:4px 0 0;
+    color:var(--muted);
+    font-size:11px
+}
+.navgroup {
+    border-bottom:1px solid #edf1f5
+}
+.navbtn {
+    width:100%;
+    border:0;
+    background:white;
+    text-align:left;
+    padding:13px 15px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    cursor:pointer;
+    color:#31445a;
+    font-size:13px;
+    font-weight:700
+}
+.navbtn:hover,.navbtn.active {
+    background:#eef4f9;
+    color:var(--navy)
+}
+.navicon {
+    width:27px;
+    height:27px;
+    display:grid;
+    place-items:center;
+    border-radius:8px;
+    background:#f0f4f8;
+    color:var(--blue);
+    font-size:14px;
+    flex:none
+}
+.chev {
+    margin-left:auto;
+    color:#718095
+}
+.submenu {
+    display:none;
+    padding:0 12px 10px 51px;
+    background:#fbfcfe
+}
+.navgroup.open .submenu {
+    display:block
+}
+.subitem {
+    display:block;
+    padding:7px 0;
+    color:#596b7f;
+    font-size:12px;
+    cursor:pointer
+}
+.subitem:hover,.subitem.selected {
+    color:var(--blue);
+    font-weight:700
+}
+.contenthead {
+    padding:19px 21px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    align-items:start
+}
+.contenthead h3 {
+    font-size:19px;
+    color:var(--navy);
+    margin:0
+}
+.contenthead p {
+    font-size:12px;
+    color:var(--muted);
+    margin:4px 0 0
+}
+.panelbody {
+    padding:20px
+}
+.welcome {
+    background:linear-gradient(120deg,#f3f7fb,#fffaf0);
+    border:1px solid #e6e5de;
+    border-radius:12px;
+    padding:17px 18px;
+    margin-bottom:18px
+}
+.welcome strong {
+    color:var(--navy);
+    font-size:14px
+}
+.welcome p {
+    font-size:12px;
+    color:#5c6b7e;
+    margin:5px 0 0
+}
+.tiles {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px
+}
+.tile {
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    min-height:158px
+}
+.tile .tileicon {
+    font-size:21px;
+    color:var(--blue)
+}
+.tile h4 {
+    margin:0;
+    font-size:14px;
+    color:var(--navy)
+}
+.tile p {
+    margin:0;
+    color:var(--muted);
+    font-size:12px;
+    flex:1
+}
+.tile button,.action {
+    border:1px solid #cfdbe7;
+    border-radius:8px;
+    padding:8px 10px;
+    background:#fff;
+    color:var(--blue);
+    font-size:11px;
+    font-weight:700;
+    cursor:pointer;
+    text-align:center
+}
+.tile button:hover,.action:hover {
+    background:#edf4fa
+}
+.tablewrap {
+    overflow-x:auto;
+    border:1px solid var(--line);
+    border-radius:10px;
+    margin-top:14px
+}
+table {
+    border-collapse:collapse;
+    width:100%;
+    min-width:720px;
+    font-size:12px
+}
+th {
+    background:#f1f5f9;
+    color:#34475e;
+    text-align:left;
+    padding:11px 12px;
+    font-size:11px
+}
+td {
+    padding:11px 12px;
+    border-top:1px solid #e9eef3;
+    vertical-align:top
+}
+td input,td select {
+    max-width:150px;
+    width:100%;
+    padding:7px;
+    border:1px solid #d8e1ea;
+    border-radius:6px;
+    font-size:11px;
+    background:white
+}
+.viewdoc {
+    display:inline-block;
+    border:1px solid #cfdbe7;
+    border-radius:7px;
+    padding:6px 9px;
+    color:var(--blue);
+    font-size:11px;
+    font-weight:700
+}
+.status {
+    display:inline-block;
+    border-radius:100px;
+    padding:4px 8px;
+    font-size:10px;
+    font-weight:700;
+    background:#eef2f6;
+    color:#58687b
+}
+.status.approved,.status.completed {
+    background:#e8f5ee;
+    color:var(--green)
+}
+.status.pending,.status.under-process {
+    background:#fff3dc;
+    color:var(--amber)
+}
+.status.action-required {
+    background:#fceaea;
+    color:var(--red)
+}
+.panel-actions {
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:16px
+}
+.primary {
+    background:var(--navy);
+    border-color:var(--navy);
+    color:white
+}
+.primary:hover {
+    background:#1a456f;
+    color:white
+}
+.smallnote {
+    margin-top:15px;
+    font-size:11px;
+    color:var(--muted)
+}
+footer {
+    background:#0c213b;
+    color:#d3deea;
+    padding:18px 0;
+    font-size:11px
+}
+footer .wrap {
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap
+}
+footer strong {
+    color:white
+}
+@media(max-width:900px) {
+    .layout {
+        grid-template-columns:1fr
+    }
+    .sidebar {
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr))
+    }
+    .sidehead {
+        grid-column:1/-1
+    }
+    .navgroup {
+        border-right:1px solid #edf1f5
+    }
+    .metrics {
+        grid-template-columns:repeat(2,minmax(0,1fr))
+    }
+}
+@media(max-width:600px) {
+    .office {
+        display:none
+    }
+    .metrics {
+        grid-template-columns:repeat(2,minmax(0,1fr))
+    }
+    .sidebar {
+        display:block
+    }
+    .tiles {
+        grid-template-columns:1fr
+    }
+    .contenthead {
+        padding:16px
+    }
+    .panelbody {
+        padding:14px
+    }
+    .hero {
+        padding:27px 0
+    }
+    .tag {
+        white-space:normal
+    }
+}
+  
+.detail-text { color: var(--muted); }
+.status-complete { background:#e8f5ed; color:#216744; }
+.status-pending { background:#fff4dc; color:#875f10; }
+.subitem { cursor:pointer; }
+</style>
+ </head>
+ <body>
+  <header class="top">
+   <div class="wrap topinner">
+    <div class="monogram">
+     N
+    </div>
+    <div class="brand">
+     <h1>
+      NADIMPALLI SATYANARAYANA RAJU INSTITUTE OF TECHNOLOGY
+     </h1>
+     <p>
+      Autonomous Institution &middot; Visakhapatnam, Andhra Pradesh
+     </p>
+    </div>
+    <div class="office">
+     <strong>
+      Office of the IQAC
+     </strong>
+     Dean (PAAC)
+    </div>
+   </div>
+  </header>
+  <section class="hero">
+   <div class="wrap">
+    <div class="eyebrow">
+     Office of the IQAC &middot; Functional Wing
+    </div>
+    <h2>
+     Process Accreditation, Rankings &amp; Certifications
+    </h2>
+    <p>
+     Dean (PAAC) dashboard for tracking statutory approvals, institutional affiliations, rankings, certifications, credentials and consolidated evidence links.
+    </p>
+    <div class="goldline">
+    </div>
+   </div>
+  </section>
+  <main class="wrap">
+   <div class="section-title">
+    <div>
+     <h3>
+      PAAC Monitoring Dashboard
+     </h3>
+     <p>
+      Central access to institutional records and compliance tracking.
+     </p>
+    </div>
+    <span class="tag">
+     Dean (PAAC)
+    </span>
+   </div>
+   <section aria-label="PAAC summary" class="metrics">
+    <div class="metric">
+     <div class="metrichead">
+      Approvals &amp; Affiliations
+      <span class="metricicon">
+       &checkmark;
+      </span>
+     </div>
+     <strong id="countApprovals">
+      6
+     </strong>
+     <small>
+      Authorities / portals listed
+     </small>
+    </div>
+    <div class="metric">
+     <div class="metrichead">
+      Ranking Categories
+      <span class="metricicon">
+       &starf;
+      </span>
+     </div>
+     <strong id="countRankings">
+      6
+     </strong>
+     <small>
+      Ranking areas configured
+     </small>
+    </div>
+    <div class="metric">
+     <div class="metrichead">
+      Evidence Links
+      <span class="metricicon">
+       &nearrow;
+      </span>
+     </div>
+     <strong id="countLinks">
+      0
+     </strong>
+     <small>
+      Configured evidence links
+     </small>
+    </div>
+    <div class="metric">
+     <div class="metrichead">
+      Pending Actions
+      <span class="metricicon">
+       !
+      </span>
+     </div>
+     <strong id="countPending">
+      &mdash;
+     </strong>
+     <small>
+      Update from verified master register
+     </small>
+    </div>
+   </section>
+   <div class="layout">
+    <aside class="sidebar">
+      <div class="sidehead">
+        <strong>PAAC NAVIGATION</strong>
+        <p>Select a category to view records and evidence links.</p>
+      </div>
+      <div id="sidebarNav"></div>
+    </aside>
+    <section aria-live="polite" class="contentpanel">
+     <div class="contenthead">
+      <div>
+       <h3 id="panelTitle">
+        Dashboard Overview
+       </h3>
+       <p id="panelSubtitle">
+        A single entry point for PAAC-related institutional processes.
+       </p>
+      </div>
+      <span class="tag" id="panelTag">
+       Overview
+      </span>
+     </div>
+     <div class="panelbody" id="panelBody">
+     </div>
+    </section>
+   </div>
+  </main>
+  <footer>
+   <div class="wrap">
+    <div>
+     <strong>
+      NSRIT &middot; Office of the IQAC
+     </strong>
+     <br/>
+     Dean (PAAC) &ndash; Process Accreditation, Rankings &amp; Certifications
+    </div>
+    <div>
+     Keep status and evidence links updated from verified institutional records.
+    </div>
+   </div>
+  </footer>
+  <script>
+    /* ============================================================
+       PAAC ADMIN EDIT AREA
+       Make routine changes ONLY in PAAC_DATA below.
+       - Add a section: add an object inside a group's sections array.
+       - Remove a section: delete that section object.
+       - Add a record: add an object inside a section's items array.
+       - Update status / Drive link: edit status / driveUrl for that item.
+       ============================================================ */
+    const PAAC_DATA = [
+      {
+        id: "approvals",
+        title: "Approvals & Affiliations",
+        icon: "✓",
+        sections: [
+          {
+            id: "aicte", title: "AICTE – Approvals",
+            desc: "Year-wise Extension of Approval, approved intake, applications and correspondence.",
+            items: [
+              { title: "Extension of Approval (EOA)", details: "Approval order, approved programmes/intake and academic year", status: "To Be Updated", driveUrl: "" },
+              { title: "AICTE Applications & Correspondence", details: "Applications, fee receipts, queries and replies", status: "To Be Updated", driveUrl: "" }
+            ]
+          },
+          {
+            id: "ugc", title: "UGC",
+            desc: "Applicable UGC recognition/status documents and official correspondence.",
+            items: [
+              { title: "UGC Recognition / Status", details: "Applicable official order or status evidence", status: "To Be Updated", driveUrl: "" },
+              { title: "UGC Correspondence", details: "Letters, submissions and responses", status: "To Be Updated", driveUrl: "" }
+            ]
+          },
+          {
+            id: "state", title: "State Government / APSCHE / CHE",
+            desc: "Applicable state-level permissions, communications and approval records.",
+            items: [
+              { title: "State Government Orders", details: "Applicable approval or permission orders", status: "To Be Updated", driveUrl: "" },
+              { title: "APSCHE / CHE Records", details: "Correspondence, approvals and supporting documents", status: "To Be Updated", driveUrl: "" }
+            ]
+          },
+          {
+            id: "aishe", title: "AISHE",
+            desc: "Registration details, annual submissions, reference IDs and reports.",
+            items: [
+              { title: "AISHE Registration & ID", details: "Institution code and registration details", status: "To Be Updated", driveUrl: "" },
+              { title: "Annual AISHE Submission", details: "Submitted data, confirmation and report", status: "To Be Updated", driveUrl: "" }
+            ]
+          },
+          {
+            id: "nsp", title: "NSP",
+            desc: "Institution registration, nodal officer details and portal compliance.",
+            items: [
+              { title: "Institute Registration", details: "Registration status and institute profile", status: "To Be Updated", driveUrl: "" },
+              { title: "Nodal Officer & Compliance", details: "Verification and portal correspondence", status: "To Be Updated", driveUrl: "" }
+            ]
+          },
+          {
+            id: "jntugv", title: "JNTU-GV",
+            desc: "University affiliation orders, academic permissions and correspondence.",
+            items: [
+              { title: "Affiliation Orders", details: "Year-wise affiliation documents", status: "To Be Updated", driveUrl: "" },
+              { title: "University Correspondence", details: "Permissions and official communications", status: "To Be Updated", driveUrl: "" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "rankings", title: "Rankings", icon: "★",
+        sections: [
+          { id: "nirf", title: "NIRF", desc: "Track annual participation, submitted data, evidence and results.", items: [
+            { title: "NIRF Application & Data", details: "Application and submitted data", status: "To Be Updated", driveUrl: "" },
+            { title: "NIRF Result & Certificate", details: "Published result and certificate, if issued", status: "To Be Updated", driveUrl: "" }
+          ]},
+          { id: "rworld", title: "R.world OBE Rankings", desc: "Annual participation, evaluation outcome and recognition documents.", items: [
+            { title: "Evidence", details: "OBE Ranking Certificate-Diamond+ Band - June 2026", status: "Completed", driveUrl: "https://www.nsrit.edu.in/uploads/1ccc0ae3-a67a-48b0-92b2-d48c4f76886a.pdf" },
+            
+          ]},
+          { id: "iirc", title: "IIRC", desc: "Application records, institutional data, results and certificates.", items: [
+            { title: "Application & Data", details: "Submission, evidence and payment", status: "To Be Updated", driveUrl: "" },
+            { title: "Result & Certificate", details: "Result, recognition and certificate", status: "Completed", driveUrl: "" }
+          ]},
+          { id: "iira", title: "IIRA", desc: "Participation, submitted information, evaluation result and certificates.", items: [
+            { title: "Application & Evidence", details: "Submitted data and supporting documents", status: "To Be Updated", driveUrl: "" },
+            { title: "Result & Recognition", details: "Published result and certificate", status: "To Be Updated", driveUrl: "" }
+          ]},
+          { id: "education60", title: "Education 6.0 Ranking", desc: "Application, evidence, correspondence and recognition records.", items: [
+            { title: "Submission & Evidence", details: "Application and supporting data", status: "To Be Updated", driveUrl: "" },
+            { title: "Result & Recognition", details: "Outcome and certificate", status: "To Be Updated", driveUrl: "" }
+          ]},
+          { id: "other-rankings", title: "Other Rankings", desc: "Additional institutional rankings, awards or recognition programmes.", items: [
+            { title: "Additional Ranking", details: "Application, result, certificate and evidence", status: "To Be Updated", driveUrl: "" }
+          ]}
+        ]
+      },
+      {
+        id: "certifications", title: "Certifications", icon: "◆",
+        sections: [
+          { id: "cert-register", title: "Certification Register", desc: "Issuing body, scope, issue date, validity and evidence.", items: [
+            { title: "Institutional Certification", details: "Certificate, scope, issuer, date and validity", status: "To Be Updated", driveUrl: "" },
+            { title: "Quality / Management Certification", details: "Certificate, audit and renewal evidence", status: "To Be Updated", driveUrl: "" }
+          ]},
+          { id: "renewals", title: "Renewals & Expiry", desc: "Upcoming renewals and action owners.", items: [
+            { title: "Renewal Calendar", details: "Expiry date, responsible person and action status", status: "To Be Updated", driveUrl: "" }
+          ]}
+        ]
+      },
+      {
+        id: "credentials", title: "Institute Credentials", icon: "▣",
+        sections: [
+          { id: "institute-credentials", title: "Institute Profile & IDs", desc: "Controlled source of official institute details and identifiers.", items: [
+            { title: "Institution Profile", details: "Official name, address and institutional details", status: "To Be Updated", driveUrl: "" },
+            { title: "Institution IDs", details: "AISHE, AICTE, university and portal identifiers", status: "To Be Updated", driveUrl: "" }
+          ]},
+          { id: "statutory-docs", title: "Statutory Documents", desc: "Current, verified recognition, approval, affiliation and statutory records.", items: [
+            { title: "Recognition & Approvals", details: "Current official documents", status: "To Be Updated", driveUrl: "" },
+            { title: "Statutory Correspondence", details: "Letters, submissions and acknowledgements", status: "To Be Updated", driveUrl: "" }
+          ]}
+        ]
+      },
+      {
+        id: "consolidation", title: "Consolidation Sheets", icon: "▤",
+        sections: [
+          { id: "master-register", title: "PAAC Master Compliance Register", desc: "Central register for authorities, rankings, certificates, owners, status and evidence.", items: [
+            { title: "Master Compliance Register", details: "Consolidated approvals, rankings and certifications", status: "To Be Updated", driveUrl: "" }
+          ]},
+          { id: "ranking-register", title: "Ranking Consolidation", desc: "Year-wise participation, submission, outcome and evidence.", items: [
+            { title: "Year-wise Ranking Register", details: "Application year, result, certificate and evidence", status: "To Be Updated", driveUrl: "" }
+          ]},
+          { id: "approval-register", title: "Approvals Consolidation", desc: "Approvals by authority, year, programmes, intake and validity.", items: [
+            { title: "Authority-wise Approvals", details: "Status, approval date, validity and document link", status: "To Be Updated", driveUrl: "" }
+          ]},
+          { id: "evidence", title: "Evidence Repository", desc: "Central links to official letters, applications, receipts, certificates and data.", items: [
+            { title: "Google Drive Evidence Index", details: "Folder links and document ownership", status: "To Be Updated", driveUrl: "" }
+          ]}
+        ]
+      },
+      {
+        id: "reports", title: "Reports & Monitoring", icon: "▥",
+        sections: [
+          { id: "pending", title: "Pending Actions", desc: "Missing evidence, pending decisions, corrections and follow-up owners.", items: [
+            { title: "Action Tracker", details: "Action, owner, due date, status and remarks", status: "To Be Updated", driveUrl: "" }
+          ]},
+          { id: "management-reports", title: "Management Reports", desc: "Periodic PAAC status for the Principal and management.", items: [
+            { title: "Monthly PAAC Status", details: "Completed, pending, upcoming and risks", status: "To Be Updated", driveUrl: "" },
+            { title: "Year-end Consolidation", details: "Final submissions, outcomes and improvement plan", status: "To Be Updated", driveUrl: "" }
+          ]}
+        ]
+      }
+    ];
+
+    /* ============================================================
+       DISPLAY ENGINE — routine updates should not require edits here.
+       ============================================================ */
+    const panelBody = document.getElementById("panelBody");
+    const allSections = () => PAAC_DATA.flatMap(group => group.sections.map(section => ({ ...section, groupId: group.id, groupTitle: group.title })));
+    const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+    const safeURL = value => /^https:\/\//i.test(String(value || "").trim()) ? String(value).trim() : "";
+
+    function renderNavigation() {
+      const nav = document.getElementById("sidebarNav");
+      nav.innerHTML = `<div class="navgroup open"><button class="navbtn active" data-section="overview"><span class="navicon">⌂</span>Dashboard Overview</button></div>` +
+        PAAC_DATA.map(group => `<div class="navgroup open">
+          <button class="navbtn" data-toggle="${escapeHTML(group.id)}"><span class="navicon">${escapeHTML(group.icon || "•")}</span>${escapeHTML(group.title)}<span class="chev">⌄</span></button>
+          <div class="submenu">${group.sections.map(section => `<a href="#${escapeHTML(section.id)}" class="subitem" data-section="${escapeHTML(section.id)}">${escapeHTML(section.title)}</a>`).join("")}</div>
+        </div>`).join("");
+      nav.querySelectorAll("[data-toggle]").forEach(button => button.addEventListener("click", () => button.parentElement.classList.toggle("open")));
+      nav.querySelectorAll("[data-section]").forEach(element => element.addEventListener("click", event => {
+        event.preventDefault();
+        showSection(element.dataset.section);
+      }));
+    }
+
+    function statusClass(status) {
+      const value = String(status || "").toLowerCase();
+      if (value.includes("complete") || value.includes("approved") || value.includes("submitted")) return "status status-complete";
+      if (value.includes("pending") || value.includes("progress") || value.includes("update")) return "status status-pending";
+      return "status";
+    }
+
+    function renderOverview() {
+      const sections = allSections();
+      const total = sections.reduce((sum, section) => sum + section.items.length, 0);
+      return `<div class="welcome"><strong>Welcome to the PAAC monitoring workspace</strong><p>Use the navigation to view approvals, rankings, certifications, institutional credentials and consolidation sheets. Records, statuses and evidence links are maintained in the PAAC_DATA section of this HTML file.</p></div>
+        <div class="tiles">${sections.map(section => `<article class="tile"><div class="tileicon">◇</div><h4>${escapeHTML(section.title)}</h4><p>${escapeHTML(section.desc)}</p><button onclick="showSection('${escapeHTML(section.id)}')">View section →</button></article>`).join("")}</div>
+        <p class="smallnote">${sections.length} sections · ${total} records. This is a static, view-only page; changes made in the source code appear after the updated file is published.</p>`;
+    }
+
+    function renderSection(section) {
+      const rows = section.items.map((item, index) => {
+        const url = safeURL(item.driveUrl);
+        const evidence = url
+          ? `<a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">View Document ↗</a>`
+          : `<span class="smallnote">Link not added</span>`;
+        return `<tr><td>${index + 1}</td><td><strong>${escapeHTML(item.title)}</strong><br><span class="detail-text">${escapeHTML(item.details || "")}</span></td><td><span class="${statusClass(item.status)}">${escapeHTML(item.status || "To Be Updated")}</span></td><td>${evidence}</td></tr>`;
+      }).join("");
+      return `<div class="welcome"><strong>${escapeHTML(section.title)}</strong><p>${escapeHTML(section.desc)}</p></div>
+        <div class="tablewrap"><table><thead><tr><th>#</th><th>Record / Information</th><th>Status</th><th>Evidence</th></tr></thead><tbody>${rows || `<tr><td colspan="4">No records have been added to this section.</td></tr>`}</tbody></table></div>
+        <p class="smallnote">View-only page. Google Drive access is controlled separately by the permissions set on each linked file or folder.</p>`;
+    }
+
+    function showSection(sectionId) {
+      const section = allSections().find(item => item.id === sectionId);
+      document.getElementById("panelTitle").textContent = section ? section.title : "Dashboard Overview";
+      document.getElementById("panelSubtitle").textContent = section ? `${section.groupTitle} · View institutional records and evidence` : "A single entry point for PAAC-related institutional processes.";
+      document.getElementById("panelTag").textContent = section ? section.groupTitle : "Overview";
+      panelBody.innerHTML = section ? renderSection(section) : renderOverview();
+      document.querySelectorAll(".navbtn").forEach(button => button.classList.toggle("active", button.dataset.section === sectionId));
+      document.querySelectorAll(".subitem").forEach(link => link.classList.toggle("selected", link.dataset.section === sectionId));
+    }
+
+    renderNavigation();
+    showSection("overview");
+  </script>
+ </body>
+</html>
+
